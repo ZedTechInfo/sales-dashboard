@@ -122,7 +122,7 @@ const CustomerSatisfaction = () => {
 
   if (loading.customerSatisfaction) {
     return (
-      <Card sx={{ borderRadius: '16px', border: 'none', height: '280px' }}>
+      <Card sx={{ borderRadius: '16px', border: 'none', height: '280px', boxShadow: 'none', boxShadow: 'none' }}>
         <CardContent sx={{ padding: 3, height: '100%' }}>
           <Typography
             variant="h6"
@@ -144,7 +144,7 @@ const CustomerSatisfaction = () => {
   }
 
   return (
-    <Card sx={{ borderRadius: '16px', border: 'none', height: '280px' }}>
+    <Card sx={{ borderRadius: '16px', border: 'none', height: '280px', boxShadow: 'none', boxShadow: 'none' }}>
       <CardContent sx={{ padding: 3, height: '100%' }}>
         <Typography
           variant="h6"

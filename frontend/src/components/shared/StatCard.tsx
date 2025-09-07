@@ -19,7 +19,8 @@ const StatCard = ({ title, value, subtitle, change, icon, backgroundColor, iconC
         borderRadius: '16px',
         minHeight: '120px',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        boxShadow: 'none'
       }}
     >
       <CardContent sx={{ padding: 3, height: '100%' }}>

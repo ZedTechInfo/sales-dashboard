@@ -123,7 +123,7 @@ const TotalRevenueChart = () => {
 
   if (loading.revenue) {
     return (
-      <Card sx={{ borderRadius: '16px', border: 'none', height: '400px' }}>
+      <Card sx={{ borderRadius: '16px', border: 'none', height: '400px', boxShadow: 'none', boxShadow: 'none' }}>
         <CardContent sx={{ padding: 3, height: '100%' }}>
           <Typography
             variant="h6"
@@ -145,7 +145,7 @@ const TotalRevenueChart = () => {
   }
 
   return (
-    <Card sx={{ borderRadius: '16px', border: 'none', height: '400px' }}>
+    <Card sx={{ borderRadius: '16px', border: 'none', height: '400px', boxShadow: 'none', boxShadow: 'none' }}>
       <CardContent sx={{ padding: 3, height: '100%' }}>
         <Typography
           variant="h6"

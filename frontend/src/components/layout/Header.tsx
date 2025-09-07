@@ -8,16 +8,13 @@ import {
   Box,
   IconButton,
   Avatar,
-  Select,
-  MenuItem,
-  FormControl,
 } from '@mui/material';
 import {
   Search as SearchIcon,
   Notifications as NotificationsIcon,
   Language as LanguageIcon,
 } from '@mui/icons-material';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',

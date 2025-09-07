@@ -153,7 +153,7 @@ const VisitorInsightsChart = () => {
 
   if (loading.visitorInsights) {
     return (
-      <Card sx={{ borderRadius: '16px', border: 'none', height: '400px' }}>
+      <Card sx={{ borderRadius: '16px', border: 'none', height: '400px', boxShadow: 'none' }}>
         <CardContent sx={{ padding: 3, height: '100%' }}>
           <Typography
             variant="h6"
@@ -175,7 +175,7 @@ const VisitorInsightsChart = () => {
   }
 
   return (
-    <Card sx={{ borderRadius: '16px', border: 'none', height: '400px' }}>
+    <Card sx={{ borderRadius: '16px', border: 'none', height: '400px', boxShadow: 'none' }}>
       <CardContent sx={{ padding: 3, height: '100%' }}>
         <Typography
           variant="h6"

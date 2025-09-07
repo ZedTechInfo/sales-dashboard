@@ -60,169 +60,153 @@ const Dashboard = () => {
 
   return (
     <Box>
-      {/* Header */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 3 }}>
-        <Box>
-          <Typography 
-            variant="h5" 
-            sx={{ 
-              color: '#1F2937', 
-              fontWeight: 'bold',
-              fontSize: '20px',
-              marginBottom: 0.5
-            }}
-          >
-            Today&apos;s Sales
-          </Typography>
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              color: '#6B7280',
-              fontSize: '14px'
-            }}
-          >
-            Sales Summary
-          </Typography>
-        </Box>
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button
-            variant="outlined"
-            startIcon={<RefreshIcon />}
-            onClick={refresh.all}
-            disabled={isLoading}
-            sx={{
-              borderColor: '#D1D5DB',
-              color: '#374151',
-              textTransform: 'none',
-              borderRadius: '8px',
-              fontSize: '14px',
-              '&:hover': {
-                borderColor: '#9CA3AF',
-                backgroundColor: '#F9FAFB',
-              },
-            }}
-          >
-            Refresh
-          </Button>
-          <Button
-            variant="outlined"
-            startIcon={<ExportIcon />}
-            sx={{
-              borderColor: '#D1D5DB',
-              color: '#374151',
-              textTransform: 'none',
-              borderRadius: '8px',
-              fontSize: '14px',
-              '&:hover': {
-                borderColor: '#9CA3AF',
-                backgroundColor: '#F9FAFB',
-              },
-            }}
-          >
-            Export
-          </Button>
-        </Box>
-      </Box>
 
-      {/* Metrics Cards */}
+      {/* First Row - Today's Sales and Visitor Insights */}
       <Box
         sx={{
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(4, 1fr)',
+            lg: '60% 40%',
           },
           gap: 3,
-          marginBottom: 4,
+          marginBottom: 3,
         }}
       >
-        <StatCard
-          title="Total Revenue"
-          value={`$${metrics?.totalRevenue ? (metrics.totalRevenue / 1000).toFixed(0) : '0'}k`}
-          subtitle="Total Sales"
-          change="+8% from yesterday"
-          icon={<MoneyIcon />}
-          backgroundColor="#FFF1F2"
-          iconColor="#EF4444"
-        />
-        <StatCard
-          title="Total Orders"
-          value={metrics?.totalOrders?.toString() || '0'}
-          subtitle="Total Order"
-          change="+5% from yesterday"
-          icon={<OrderIcon />}
-          backgroundColor="#FFF7ED"
-          iconColor="#F97316"
-        />
-        <StatCard
-          title="Total Products"
-          value={metrics?.totalProducts?.toString() || '0'}
-          subtitle="Product Sold"
-          change="+1.2% from yesterday"
-          icon={<CheckIcon />}
-          backgroundColor="#F0FDF4"
-          iconColor="#22C55E"
-        />
-        <StatCard
-          title="Total Customers"
-          value={metrics?.totalCustomers?.toString() || '0'}
-          subtitle="New Customers"
-          change="+0.5% from yesterday"
-          icon={<PersonAddIcon />}
-          backgroundColor="#F3F4F6"
-          iconColor="#8B5CF6"
-        />
-      </Box>
-
-      {/* Charts Section */}
-      <Box sx={{ marginBottom: 3 }}>
-        {/* Top Row - Large Charts */}
+        {/* Today's Sales Box with Metrics Cards in Single Row */}
         <Box
           sx={{
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: '1fr',
-              lg: '2fr 1fr',
-            },
-            gap: 3,
-            marginBottom: 3,
+            backgroundColor: 'white',
+            borderRadius: '16px',
+            padding: 3,
           }}
         >
-          <VisitorInsightsChart />
-          <TotalRevenueChart />
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 3 }}>
+            <Box>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: '#1F2937',
+                  fontWeight: 'bold',
+                  fontSize: '18px',
+                  marginBottom: 0.5,
+                }}
+              >
+                Today&apos;s Sales
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: '#6B7280',
+                  fontSize: '14px',
+                }}
+              >
+                Sales Summary
+              </Typography>
+            </Box>
+            <Button
+              variant="outlined"
+              startIcon={<ExportIcon />}
+              sx={{
+                borderColor: '#D1D5DB',
+                color: '#374151',
+                textTransform: 'none',
+                borderRadius: '8px',
+                fontSize: '14px',
+                '&:hover': {
+                  borderColor: '#9CA3AF',
+                  backgroundColor: '#F9FAFB',
+                },
+              }}
+            >
+              Export
+            </Button>
+          </Box>
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: {
+                xs: '1fr',
+                sm: 'repeat(2, 1fr)',
+                lg: 'repeat(4, 1fr)',
+              },
+              gap: 2,
+            }}
+          >
+            <StatCard
+              title="Total Revenue"
+              value={`$${metrics?.totalRevenue ? (metrics.totalRevenue / 1000).toFixed(0) : '0'}k`}
+              subtitle="Total Sales"
+              change="+8% from yesterday"
+              icon={<MoneyIcon />}
+              backgroundColor="#FFF1F2"
+              iconColor="#EF4444"
+            />
+            <StatCard
+              title="Total Orders"
+              value={metrics?.totalOrders?.toString() || '0'}
+              subtitle="Total Order"
+              change="+5% from yesterday"
+              icon={<OrderIcon />}
+              backgroundColor="#FFF7ED"
+              iconColor="#F97316"
+            />
+            <StatCard
+              title="Total Products"
+              value={metrics?.totalProducts?.toString() || '0'}
+              subtitle="Product Sold"
+              change="+1.2% from yesterday"
+              icon={<CheckIcon />}
+              backgroundColor="#F0FDF4"
+              iconColor="#22C55E"
+            />
+            <StatCard
+              title="Total Customers"
+              value={metrics?.totalCustomers?.toString() || '0'}
+              subtitle="New Customers"
+              change="+0.5% from yesterday"
+              icon={<PersonAddIcon />}
+              backgroundColor="#F3F4F6"
+              iconColor="#8B5CF6"
+            />
+          </Box>
         </Box>
-
-        {/* Bottom Row - Smaller Charts */}
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: '1fr',
-              md: 'repeat(3, 1fr)',
-            },
-            gap: 3,
-          }}
-        >
-          <CustomerSatisfaction />
-          <TargetVsReality />
-          <VolumeVsServiceLevel />
-        </Box>
+        
+        {/* Visitor Insights Chart */}
+        <VisitorInsightsChart />
       </Box>
 
-      {/* Additional Sections */}
+      {/* Second Row - Total Revenue, Customer Satisfaction, Target vs Reality */}
       <Box
         sx={{
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
-            md: 'repeat(2, 1fr)',
+            md: 'repeat(3, 1fr)',
+          },
+          gap: 3,
+          marginBottom: 3,
+        }}
+      >
+        <TotalRevenueChart />
+        <CustomerSatisfaction />
+        <TargetVsReality />
+      </Box>
+
+      {/* Third Row - Top Products, Sales Mapping, Volume vs Service Level */}
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: {
+            xs: '1fr',
+            md: 'repeat(3, 1fr)',
           },
           gap: 3,
         }}
       >
         <TopProducts />
         <SalesMapping />
+        <VolumeVsServiceLevel />
       </Box>
     </Box>
   );

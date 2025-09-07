@@ -9,7 +9,7 @@ import {
 
 const SalesMapping = () => {
   return (
-    <Card sx={{ borderRadius: '16px', border: 'none', height: '280px' }}>
+    <Card sx={{ borderRadius: '16px', border: 'none', height: '280px', boxShadow: 'none' }}>
       <CardContent sx={{ padding: 3, height: '100%' }}>
         <Typography
           variant="h6"
