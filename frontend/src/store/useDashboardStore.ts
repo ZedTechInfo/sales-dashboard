@@ -43,11 +43,11 @@ export const useDashboardStore = create<DashboardState>((set) => ({
         visitorInsightsRes,
         topProductsRes,
       ] = await Promise.all([
-        axios.get('http://localhost:3000/api/dashboard/metrics'),
-        axios.get('http://localhost:3000/api/dashboard/revenue'),
-        axios.get('http://localhost:3000/api/dashboard/customer-satisfaction'),
-        axios.get('http://localhost:3000/api/dashboard/visitor-insights'),
-        axios.get('http://localhost:3000/api/dashboard/top-products'),
+        axios.get(process.env.NEXT_PUBLIC_API_BASE_URL + '/dashboard/metrics'),
+        axios.get(process.env.NEXT_PUBLIC_API_BASE_URL + '/dashboard/revenue'),
+        axios.get(process.env.NEXT_PUBLIC_API_BASE_URL + '/dashboard/customer-satisfaction'),
+        axios.get(process.env.NEXT_PUBLIC_API_BASE_URL + '/dashboard/visitor-insights'),
+        axios.get(process.env.NEXT_PUBLIC_API_BASE_URL + '/dashboard/top-products'),
       ]);
       set({
         metrics: metricsRes.data,
